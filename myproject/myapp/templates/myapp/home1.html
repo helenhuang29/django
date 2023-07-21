@@ -1,0 +1,32 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet"  type="text/css" href="{% static '\style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+  <p>Welcome, {{name}}!</p>
+  {% if pets.animal_type == "Dog" %}
+  <p>The animal is a dog</p>
+{% elif pets.animal_type == "Cat" %}
+  <p>The animal is a cat</p>
+{% else %}
+  <p>The animal is not a dog or cat</p>
+{% endif %}
+
+<p>Here is the current list of patients:</p>
+  <!-- Put the loop below here! -->
+  {% for pet in pets %}
+  <p>{{ pet.petname}}:{{pet.animal_type }}</p>
+{% endfor %}
+
+<p>{{ name|lower }}</p>
+  <!-- Edit the loop below to use a filter -->
+  {% for key in pets|dictsort:"petname" %}
+    <p>pet name : {{ key.petname }}</p>
+  {% endfor %}
+
+
+{% endblock %}

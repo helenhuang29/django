@@ -1,6 +1,6 @@
 {% extends './base.html' %}
 {% block content %}
-<h2>Create Owner</h2>
+<h2>Create Appointment</h2>
 <form method="post">
 <div>
   {% csrf_token %} {{ form.as_p }}
@@ -8,5 +8,3 @@
 </div>
 </form>
 {% endblock %}
-
-
